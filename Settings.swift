@@ -320,3 +320,13 @@ struct Settigns_Preview : PreviewProvider {
         Settings()
     }
 }
+
+struct Title: View {
+    var title : String
+    var body : some View {
+        Text("\(title)")
+            .font(.system(size: 10, weight: .bold, design: .default))
+            .kerning(2)
+    }
+}
+
