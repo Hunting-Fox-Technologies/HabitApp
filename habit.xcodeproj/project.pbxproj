@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95E8794025C22EA4008F7509 /* Ideas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8793F25C22EA4008F7509 /* Ideas.swift */; };
 		9801F2A425BF65FB0092C184 /* habitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801F2A325BF65FB0092C184 /* habitApp.swift */; };
 		9801F2A625BF65FB0092C184 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801F2A525BF65FB0092C184 /* ContentView.swift */; };
 		9801F2A825BF65FF0092C184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9801F2A725BF65FF0092C184 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95E8793F25C22EA4008F7509 /* Ideas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ideas.swift; sourceTree = "<group>"; };
 		9801F2A025BF65FB0092C184 /* habit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = habit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9801F2A325BF65FB0092C184 /* habitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = habitApp.swift; sourceTree = "<group>"; };
 		9801F2A525BF65FB0092C184 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				9801F2A325BF65FB0092C184 /* habitApp.swift */,
 				9801F2A525BF65FB0092C184 /* ContentView.swift */,
+				95E8793F25C22EA4008F7509 /* Ideas.swift */,
 				9801F2A725BF65FF0092C184 /* Assets.xcassets */,
 				9801F2AC25BF65FF0092C184 /* Info.plist */,
 				9801F2A925BF65FF0092C184 /* Preview Content */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9801F2A625BF65FB0092C184 /* ContentView.swift in Sources */,
+				95E8794025C22EA4008F7509 /* Ideas.swift in Sources */,
 				9801F2A425BF65FB0092C184 /* habitApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
