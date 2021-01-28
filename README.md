@@ -3,9 +3,14 @@ This is the HabitApp Project
 
 The Project Coding Guideline is as follow :
 
+
+
 1.- Name each .swift File according to the Mockup Name, for example the Settings Mockup Page should be called "Settings.swift"
 
-2.-When pushing the code, make sure to push only the .swift File
+2.-When pushing the code, make sure to push only the .swift File 
+
+3.-Each Developer will upload their code to their own branch, so we can all have a sense of our progress
+
 
 --------------------------------------
 Work Stages :
