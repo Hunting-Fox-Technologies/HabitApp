@@ -1,0 +1,14 @@
+<svg id="Logo" xmlns="http://www.w3.org/2000/svg" width="82" height="72" viewBox="0 0 82 72">
+  <g id="Group_21" data-name="Group 21" transform="translate(-166 -332)">
+    <rect id="Rectangle_15" data-name="Rectangle 15" width="82" height="18" rx="5" transform="translate(166 386)" fill="#e8e8e8"/>
+    <path id="Rectangle_16" data-name="Rectangle 16" d="M5,0H63a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z" transform="translate(166 386)" fill="#0097d2"/>
+  </g>
+  <g id="Group_20" data-name="Group 20" transform="translate(-166 -332)">
+    <rect id="Rectangle_14" data-name="Rectangle 14" width="82" height="18" rx="5" transform="translate(166 359)" fill="#e8e8e8"/>
+    <path id="Rectangle_17" data-name="Rectangle 17" d="M5,0H48a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z" transform="translate(166 359)" fill="#f55f60"/>
+  </g>
+  <g id="Group_19" data-name="Group 19" transform="translate(-166 -332)">
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="82" height="18" rx="5" transform="translate(166 332)" fill="#e8e8e8"/>
+    <path id="Rectangle_18" data-name="Rectangle 18" d="M5,0H62a0,0,0,0,1,0,0V18a0,0,0,0,1,0,0H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z" transform="translate(166 332)" fill="#f8c500"/>
+  </g>
+</svg>

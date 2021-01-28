@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="22.321" viewBox="0 0 26 22.321">
+  <g id="Save_Money" data-name="Save Money" transform="translate(-73 431)">
+    <path id="Path_1" data-name="Path 1" d="M1064.218-484.6a4.256,4.256,0,0,0-2.556,3.865H1059.6v3.847s2.235-.025,2.294,0,2.325,3.009,2.325,3.009v2.9h3.258v-2.065h8.213v2.065h3.342v-2.9s3.582-2.669,3.253-6.013-5.639-5.508-5.639-5.508h-2.078a2.386,2.386,0,0,1-2.451,1.995c-2.149-.027-2.341,0-2.341,0s-1.352.035-2.018-2.471S1064.218-484.6,1064.218-484.6Z" transform="translate(-985.599 61.295)" fill="none" stroke="#707070" stroke-width="2"/>
+    <g id="Ellipse_11" data-name="Ellipse 11" transform="translate(82.625 -431)" fill="none" stroke="#707070" stroke-width="2">
+      <circle cx="3" cy="3" r="3" stroke="none"/>
+      <circle cx="3" cy="3" r="2" fill="none"/>
+    </g>
+    <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(78.551 -420.885)" fill="#fff" stroke="#707070" stroke-width="2">
+      <circle cx="0.5" cy="0.5" r="0.5" stroke="none"/>
+      <circle cx="0.5" cy="0.5" r="0.5" fill="none"/>
+    </g>
+    <line id="Line_19" data-name="Line 19" x2="2.249" transform="translate(96.751 -419)" fill="none" stroke="#707070" stroke-width="2"/>
+  </g>
+</svg>
