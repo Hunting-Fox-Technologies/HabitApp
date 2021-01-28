@@ -30,3 +30,5 @@ i press a button it should change its color, or when i tap on a writting box it 
 3.Sprint : Transitions 
 ==>We will work on transitoning each page to the other, for instance on the Home page, the plus sign button should take us to the Create page, the gear button
 should take us to the Settings Page and so on.
+
+...Yet to Create
