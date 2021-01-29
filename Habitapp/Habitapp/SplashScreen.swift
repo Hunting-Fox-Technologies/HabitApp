@@ -14,37 +14,45 @@ struct SplashScreen : View {
     var body : some View {
         ZStack{
             Home()
+            
             ZStack{
-                Color(.white)
                 Image("Logo")
+                    .resizable()
                     .renderingMode(.original)
-                    //.scaleEffect(animate ? 3 : 1)
-                    //.frame(width : UIScreen.main.bounds.width)
-            }
-            .ignoresSafeArea(.all , edges: .all)
-            .onAppear(perform : animateSplash)
-            .opacity(endSplash ? 0  : 1)
-        }
-    }
-    func animateSplash(){
-        DispatchQueue
-            .main
-            .asyncAfter(deadline: .now() + 3.25){
+                    .aspectRatio(contentMode: animate ? .fill :  .fit)
+                    .frame(width: animate ? nil : 85, height: animate ? nil : 85)
+                    .scaleEffect(animate ? 3 : 1)
                 
-                withAnimation(Animation.easeOut(duration: 0.45)){
-                    animate.toggle()
-                }
-                withAnimation(Animation.linear(duration: 0.35)){
-                    endSplash.toggle()
-                }
+            
+            .ignoresSafeArea(.all , edges: .all)
+            .onAppear(perform: animateSplash)
+                    .opacity(endSplash ? 0 : 1)
             }
-    }
 
+    }
 }
 
+    func animateSplash(){
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+            
+            withAnimation(Animation.easeOut(duration: 0.45)) {
+                animate.toggle()
+            }
+            
+            withAnimation(Animation.easeOut(duration: 0.35)) {
+                endSplash.toggle()
+            }
+            
+           
+            
+        
+}
+}
 
 struct Splash_Previews: PreviewProvider {
     static var previews: some View {
         SplashScreen()
     }
+}
 }
