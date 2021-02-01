@@ -39,9 +39,9 @@ i press a button it should change its color, or when i tap on a writting box it 
 
 ->Michael : Settings  
 
-->Yoon    : SplashScreen , Home
+->Yoon    : SplashScreen , Home - > Transtion between the Splash Screen to the Home Screen 
 
-->Dennis  : Ideas
+->Dennis  : Ideas - > Transition between the Ideas Button on the Create Page to the Ideas Screen 
 
 ->Brandon : Create 
 
