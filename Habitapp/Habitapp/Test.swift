@@ -5,118 +5,85 @@
 //  Created by Brandon Suarez on 1/23/21.
 //
 
-import SwiftUI
+ import SwiftUI
 
-struct Test : View {
-    @State var change1 = 1
-    
-    
+struct test : View {
+    @State var state = false
+    @State var picker = 1
     var body : some View {
-        ScrollView(.vertical){
-            HStack{
-                Text("SETTINGS")
-                Spacer()
-                    .frame(width : 165)
+        ZStack{
+            VStack{
                 Button(action : {
-                    //action
-                    
-                }) {
-                    Text("DONE1")
-                        .font(.system(size: 10, weight: .regular, design: .default))
+                    //Somea action
+                    self.state.toggle()
+                }){
+                    Text("Button")
                         .foregroundColor(.white)
-                        .frame(width: 52, height: 18, alignment: .center)
-                        .background(Color(UIColor(named : "Blue1")!))
-                        .cornerRadius(5)
+                        .frame(width: 100, height: 30, alignment: .center)
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                        
                 }
             }
-            
-            HStack{
-                Button(action : {
-                    //Some actions
-                    self.change1 = 1
-                }){
-                    HStack{
-                        if change1 == 1 {
-                            Text("DONE1")
-                                .font(.system(size: 10, weight: .regular, design: .default))
-                                .foregroundColor(.black)
-                                .frame(width: 52, height: 18, alignment: .center)
-                                .background(Color(UIColor(named : "Blue1")!))
-                                .cornerRadius(5)
+            if $state.wrappedValue {
+                ZStack(alignment : .bottom) {
+                    Color
+                        .black
+                        .opacity(0.8)
+                    LazyVStack{
+                        Spacer()
+                            .frame(height : 30)
+                        HStack{
+                          Text("WEEK STARTS:")
+                            .font(.system(size: 15, weight: .regular, design: .default))
+                            .foregroundColor(Color(UIColor(named : "BBlue")!))
+                            Spacer()
+                                .frame(width : 133)
+                            Button(action : {
+                                //some actions
+                                
+                            }){
+                                Text("SAVE")
+                                    .font(.system(size: 10, weight: .regular, design: .default))
+                                    .foregroundColor(.white)
+                                    .frame(width: 49, height: 18, alignment: .center)
+                                    .background(Color(UIColor(named : "BBlue")!))
+                                    .cornerRadius(5)
+                            }
+                            Spacer()
+                                .frame(width : 30)
+                            Button(action : {
+                                //Some actions
+                                self.state = false
+                            }){
+                                Image("Exit X")
+                            }
                         }
-                        else {
-                            Text("DONE2")
-                                .font(.system(size: 10, weight: .regular, design: .default))
-                                .foregroundColor(.black)
-                                .frame(width: 52, height: 18, alignment: .center)
-                        }
-                        
-
+                        Picker(selection: $picker , label: Text("Picker"), content: {
+                            Text("1").tag(1)
+                            Text("2").tag(2)
+                            Text("3").tag(3)
+                            Text("4").tag(4)
+                            Text("5").tag(5)
+                            Text("6").tag(6)
+                            Text("7").tag(7)
+                        })
                     }
-                                        
+                    .frame(maxWidth: .infinity,maxHeight: UIScreen.main.bounds.height / 1.7 , alignment: .top)
+                    .background(Color.white)
+                    
                 }
-                Button(action : {
-                    //Some actions
-                    self.change1 = 2
-                }){
-                    HStack{
-                        if change1 == 2 {
-                            Text("DONE2")
-                                .font(.system(size: 10, weight: .regular, design: .default))
-                                .foregroundColor(.black)
-                                .frame(width: 52, height: 18, alignment: .center)
-                                .background(Color(UIColor(named : "Blue1")!))
-                                .cornerRadius(5)
-                        }
-                        else {
-                            Text("DONE2")
-                                .font(.system(size: 10, weight: .regular, design: .default))
-                                .foregroundColor(.black)
-                                .frame(width: 52, height: 18, alignment: .center)
-                        }
-                        
-                            
-
-                    }
-                                        
-                }
-                Button(action : {
-                    //Some actions
-                    self.change1 = 3
-                }){
-                    HStack{
-                        if change1 == 3 {
-                            Text("DONE3")
-                                .font(.system(size: 10, weight: .regular, design: .default))
-                                .foregroundColor(.black)
-                                .frame(width: 52, height: 18, alignment: .center)
-                                .background(Color(UIColor(named : "Blue1")!))
-                                .cornerRadius(5)
-                        }
-                        else {
-                            Text("DONE3")
-                                .font(.system(size: 10, weight: .regular, design: .default))
-                                .foregroundColor(.black)
-                                .frame(width: 52, height: 18, alignment: .center)
-                        }
-                        
-                            
-
-                    }
-                                        
-                }
+                .edgesIgnoringSafeArea(.all)
             }
-            
         }
-        .frame(maxWidth: .infinity)
-}
+    }
 }
 
 
-struct Test_Previews : PreviewProvider {
-    
-    static var previews : some View {
-        Test()
+
+struct Modal_Previews: PreviewProvider {
+    static var previews: some View {
+        test()
     }
 }
 

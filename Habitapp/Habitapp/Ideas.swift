@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Ideas : View {
+    //Envrionment var for the DONE button
+    @Environment(\.presentationMode) var presentationMode
+    
     var body : some View {
         ScrollView(.vertical){
             VStack(alignment : .leading){
@@ -17,6 +20,7 @@ struct Ideas : View {
                     BigTitle(title: "IDEAS")
                     Button(action : {
                         //some action
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("DONE")
                             .foregroundColor(.white)

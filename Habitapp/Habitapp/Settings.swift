@@ -8,6 +8,43 @@
 import SwiftUI
 
 struct Settings : View {
+    @Environment(\.presentationMode) var presentationMode
+    @State var set = false
+    //State var for the SORT GOALS BY
+    @State var z1 = 0
+    //State var for the APP SETTINGS
+    @State var z2 = 0 //SOUND
+    @State var z3 = 0 //BACKGROUND
+    @State var z4 = 0 //BACK UP REMINDERS
+    @State var z5 = false //WEEK START DATE
+    @State var z6 = false //WEEK START TIME
+    
+    //State var for the UTILITIES
+    @State var z7 = false //TURN ON PASSCODE
+    @State var z8 = false //ARCHIVE
+    
+    //State var for the REMINDERS
+    @State var z9 = false //GENERAL APP REMINDERS
+    @State var z10 = false //REMINDER SOUND
+    @State var z11 = false //SNOOZE TIME
+    @State var z12 = false //REMOVE ALL REMINDERS
+    @State var z13 = false //REMOVE ALL ICON BADGES
+    
+    //State var for the SUMMARY SETTINGS
+    @State var z14 = 0
+    
+    //State var for the HELP ICON ON MAIN LIST
+    @State var z15 = 0
+    
+    //State var for the MAIN DISPLAY ON HABIT BAR
+    @State var z16 = 0
+    
+    //State var for the SMALL DISPLAY ON HABIT BAR
+    @State var z17 = 0
+    
+    //State var for the INSTRUCTIONS
+    @State var z18 = false
+    
     var body : some View {
         ScrollView(.vertical){
             VStack(alignment : .leading , spacing : 30){
@@ -18,6 +55,7 @@ struct Settings : View {
                             .kerning(5)
                         Button(action : {
                             //Some actions
+                            self.presentationMode.wrappedValue.dismiss()
                         }) {
                             Text("DONE")
                                 .font(.system(size: 10, weight: .regular, design: .default))
@@ -34,41 +72,32 @@ struct Settings : View {
                             Spacer().frame(width: 30, height: 18)
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("NAME")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 41, height: 18, alignment: .center)
+                                self.z1 = 0
+                            }) {//NAME / w = 41 / 0 / z1
+                                changeButton(title: "NAME", width: 41, access: 0, state: z1)
                             }
                             Button(action : {
                                 //Some action
-                            }) {
-                                Text("START")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 42, height: 18, alignment: .center)
+                                self.z1 = 1
+                            }) {// START / w = 42 / 1 / z1
+                                changeButton(title: "START", width: 42, access: 1, state: z1)
                                     
                             }
                             Button(action : {
                                 //Some action
-                            }) {
-                                Text("LAST")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 36, height: 18, alignment: .center)
+                                self.z1 = 2
+                            }) {//LAST / w = 36 / 2 / z1
+                                changeButton(title: "LAST", width: 36, access: 2, state: z1)
                             }
                             Button (action : {
                                 //Some action
-                            }) {
-                                Text("CUSTOM")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 55, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named: "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z1 = 3
+                            }) {// CUSTOM / w = 55 / 3 / z1
+                                changeButton(title: "CUSTOM", width: 55, access: 3, state: z1)
                             }
                             Button(action : {
                                 //Some action
+                                self.set.toggle()
                             }) {
                                 Text("SET")
                                     .font(.system(size: 10, weight: .regular, design: .default))
@@ -77,6 +106,7 @@ struct Settings : View {
                                     .background(Color(UIColor(named: "LightGray")!))
                                     .cornerRadius(5)
                             }
+                            .fullScreenCover(isPresented: $set, content: FullScreenModalViewSetOrder.init)
                             
                         }
                     }
@@ -89,21 +119,15 @@ struct Settings : View {
                             Spacer().frame(width: 56, height: 18)
                             Button(action : {
                                 //Some actions
-                            }){
-                                Text("ON")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 28, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named : "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z2 = 0
+                            }){//ON / w = 28 / 0 / z2
+                                changeButton(title: "ON", width: 28, access: 0, state: z2)
                             }
                             Button(action : {
                                 //Some action
-                            }) {
-                                Text("YES")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 33, height: 18, alignment: .center)
+                                self.z2 = 1
+                            }) {//YES / w = 10 / 1 / z2
+                                changeButton(title: "OFF", width: 33, access: 1, state: z2)
                             }
                         }
                         HStack{
@@ -115,21 +139,15 @@ struct Settings : View {
                                 .frame(width: 12, height: 18)
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("LIGHT")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 45, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named : "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z3 = 0
+                            }) { // LIGHT / w = 45 / 0 / z3
+                                changeButton(title: "LIGHT", width: 45, access: 0, state: z3)
                             }
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("DARK")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 42, height: 18, alignment: .center)
+                                self.z3 = 1
+                            }) { // DARK / w = 42 / 1 / z3
+                                changeButton(title: "DARK", width: 42, access: 1, state: z3)
                             }
                                 
                         }
@@ -142,21 +160,15 @@ struct Settings : View {
                                 .frame(width: 18, height: 18)
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("ON")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 28, height: 18, alignment: .center)
+                                self.z4 = 0
+                            }) {//ON / w = 28 / 0 / z4
+                                changeButton(title: "ON", width: 28, access: 0, state: z4)
                             }
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("OFF")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 33, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named : "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z4 = 1
+                            }) {//OFF / w = 33 / 1 / z4
+                                changeButton(title: "OFF", width: 33, access: 1, state: z4)
                             }
                                 
                         }
@@ -169,6 +181,7 @@ struct Settings : View {
                                 .frame(width: 32, height: 18)
                             Button(action : {
                                 //Some actions
+                                self.z5.toggle()
                             }) {
                                 HStack(spacing : 30){
                                     Text("SUNDAY")
@@ -178,18 +191,18 @@ struct Settings : View {
                                     Image("DownWardArrow")
                                 }
                             }
-                            
-                                
                         }
+                        
                         HStack{
-                            Text("WEEK START:")
+                            Text("DAY START:")
                                 .font(.system(size: 10, weight: .regular, design: .default))
                                 .kerning(2)
                                 .foregroundColor(.black)
                             Spacer()
-                                .frame(width: 32, height: 18)
+                                .frame(width: 42, height: 18)
                             Button(action : {
                                 //Some actions
+                                self.z6.toggle()
                             }) {
                                 HStack(spacing : 30){
                                     Text("12:00 AM")
@@ -215,38 +228,32 @@ struct Settings : View {
                                 .frame(width: 18, height: 18)
                             Button(action : {
                                 //Some actions
-                            }) {
+                                self.z7.toggle()
+                            }) {//ON / w = 28 / 0 /z7
                                 Text("ON")
                                     .font(.system(size: 10, weight: .regular, design: .default))
                                     .foregroundColor(.black)
-                                    .frame(width: 28, height: 18, alignment: .center)
                             }
-                            Button(action : {
-                                //Some actions
-                            }) {
-                                Text("OFF")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 33, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named : "LightGray")!))
-                                    .cornerRadius(5)
-                            }
+                            .fullScreenCover(isPresented: $z7, content: FullScreenModalViewPasscode.init)
                                 
                         }
                         Button(action : {
                             //Some actions
+                            self.z8.toggle()
                         }) {
                             Text("ARCHIVE")
                                 .font(.system(size: 10, weight: .regular, design: .default))
                                 .kerning(2)
                                 .foregroundColor(.black)
                         }
+                        .fullScreenCover(isPresented: $z8, content: FullScreenModalViewArchive.init)
                         
                     }
                     VStack(alignment : .leading , spacing : 18){
                         Title(title:"REMINDERS")
                         Button(action : {
                             //Some actions
+                            self.z9.toggle()
                         }) {
                             Text("GENERAL APP REMINDERS")
                                 .font(.system(size: 10, weight: .regular, design: .default))
@@ -255,6 +262,7 @@ struct Settings : View {
                         }
                         Button(action : {
                             //Some actions
+                            self.z10.toggle()
                         }) {
                             HStack(spacing : 30){
                                 Text("REMINDER SOUND : CLARINET")
@@ -266,6 +274,7 @@ struct Settings : View {
                         }
                         Button(action : {
                             //Some actions
+                            self.z11.toggle()
                         }) {
                             HStack(spacing : 30){
                                 Text("SNOOZE TIME : 15 MIN")
@@ -277,6 +286,7 @@ struct Settings : View {
                         }
                         Button(action : {
                             //Some actions
+                            self.z12.toggle()
                         }) {
                             Text("REMOVE ALL REMINDERS")
                                 .font(.system(size: 10, weight: .regular, design: .default))
@@ -285,6 +295,7 @@ struct Settings : View {
                         }
                         Button(action : {
                             //Some actions
+                            self.z13.toggle()
                         }) {
                             Text("REMOVE ALL ICON BADGES")
                                 .font(.system(size: 10, weight: .regular, design: .default))
@@ -303,21 +314,15 @@ struct Settings : View {
                                 .frame(width: 18, height: 18)
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("ON")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 28, height: 18, alignment: .center)
+                                self.z14 = 0
+                            }) {//ON / w = 28 / 0 / z14
+                                changeButton(title: "ON", width: 28, access: 0, state: z14)
                             }
                             Button(action : {
                                 //Some actions
-                            }) {
-                                Text("OFF")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 33, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named : "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z14 = 1
+                            }) {//OFF / w = 33 / 1 / z14
+                                changeButton(title: "OFF", width: 33, access: 1, state: z14)
                             }
                                 
                         }
@@ -328,21 +333,15 @@ struct Settings : View {
                             Spacer().frame(width: 30, height: 18)
                             Button(action : {
                                 //Some action
-                            }) {
-                                Text("SHOW")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 46, height: 18, alignment: .center)
+                                self.z15 = 0
+                            }) {//SHOW / w = 46 / 0 / z15
+                                changeButton(title: "SHOW", width: 46, access: 0, state: z15)
                             }
                             Button (action : {
                                 //Some action
-                            }) {
-                                Text("HIDE")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 38, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named: "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z15 = 1
+                            }) {//HIDE / w = 38 / 1 / z15
+                                changeButton(title: "HIDE", width: 38, access: 1, state: z15)
                             }
                             
                         }
@@ -353,30 +352,22 @@ struct Settings : View {
                             Spacer().frame(width: 30, height: 18)
                             Button(action : {
                                 //Some action
-                            }) {
-                                Text("STREAK")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named: "LightGray")!))
-                                    .cornerRadius(5)
+                                self.z16 = 0
+                            }) {// STREAK / w = 50 / 0 / z16
+                                changeButton(title: "STREAK", width: 50, access: 0, state: z16)
                                     
                             }
                             Button(action : {
                                 //Some action
-                            }) {
-                                Text("COUNT")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 47, height: 18, alignment: .center)
+                                self.z16 = 1
+                            }) {// COUNT / w = 47 / 1 / z16
+                                changeButton(title: "COUNT", width: 47, access: 1, state: z16)
                             }
                             Button (action : {
                                 //Some action
-                            }) {
-                                Text("LEFT TO GOAL")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 81, height: 18, alignment: .center)
+                                self.z16 = 2
+                            }) {//LEFT TO GOAL / 81 / 2 / z16
+                                changeButton(title: "LEFT TO GOAL", width: 81, access: 2, state: z16)
                             }
                             
                         }
@@ -387,38 +378,27 @@ struct Settings : View {
                             Spacer().frame(width: 30, height: 18)
                             Button(action : {
                                 //Some action
+                                self.z17 = 0
                             }) {
-                                Text("GOAL")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 39, height: 18, alignment: .center)
-                                    .background(Color(UIColor(named: "LightGray")!))
-                                    .cornerRadius(5)
-                                    
+                                changeButton(title: "GOAL", width: 39, access: 0, state: z17)
                             }
                             Button(action : {
                                 //Some action
+                                self.z17 = 1
                             }) {
-                                Text("LAST")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 36, height: 18, alignment: .center)
+                                changeButton(title: "LAST", width: 36, access: 1, state: z17)
                             }
                             Button (action : {
                                 //Some action
+                                self.z17 = 2
                             }) {
-                                Text("STREAK")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 50, height: 18, alignment: .center)
+                                changeButton(title: "STREAK", width: 50, access: 2, state: z17)
                             }
                             Button (action : {
                                 //Some action
+                                self.z17 = 3
                             }) {
-                                Text("NOTE")
-                                    .font(.system(size: 10, weight: .regular, design: .default))
-                                    .foregroundColor(.black)
-                                    .frame(width: 39, height: 18, alignment: .center)
+                                changeButton(title: "NOTE", width: 39, access: 3, state: z17)
                             }
                             
                         }
@@ -427,12 +407,16 @@ struct Settings : View {
                         Title(title: "INSTRUCTIONS")
                         Button(action : {
                             //Some actions
+                            self.z18.toggle()
                         }) {
                             Text("WALKTRHOUGH")
                                 .font(.system(size: 10, weight: .regular, design: .default))
                                 .foregroundColor(.black)
                                 .kerning(2)
                         }
+                        .sheet(isPresented: $z18, content: {
+                            Walkthrough()
+                        })
                         Spacer()
                     }
        
@@ -452,3 +436,33 @@ struct Settigns_Preview : PreviewProvider {
     }
 }
 
+
+struct FullScreenModalViewSetOrder : View {
+    @Environment(\.presentationMode) var presentationMode
+    var body: some View{
+        VStack{
+            SetOrder()
+        }
+    }
+}
+
+struct FullScreenModalViewArchive : View {
+    @Environment(\.presentationMode) var presentationMode
+    var body : some View {
+        VStack{
+            Archive()
+        }
+    }
+}
+
+struct FullScreenModalViewPasscode : View {
+    @Environment(\.presentationMode) var presentationMode
+    var body : some View {
+        VStack{
+            Passcode()
+        }
+        .onTapGesture {
+            presentationMode.wrappedValue.dismiss()
+        }
+    }
+}

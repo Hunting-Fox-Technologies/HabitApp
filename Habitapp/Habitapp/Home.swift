@@ -10,6 +10,7 @@ import SwiftUI
 struct Home: View {
     @State var isPresentedSettings = false
     @State var isPresentedCreate = false
+    @State var isPresentedSummary = false
     
     var body : some View {
         ZStack{
@@ -25,7 +26,7 @@ struct Home: View {
                     Spacer().frame(width:30)
                 }
                 .frame(maxWidth : .infinity)
-                .padding(.top,21)
+                //.padding(.top,21)
                 Spacer()
                 HStack{
                     Spacer().frame(width : 30)
@@ -52,7 +53,15 @@ struct Home: View {
                     Spacer().frame(width : 141)
                     //End of the Code of the Plus Button
                     
+                    Button(action : {
+                        //some actions
+                        self.isPresentedSummary.toggle()
+                    }){
+                        
                     Image("Graph")
+                        
+                    }
+                    .fullScreenCover(isPresented: $isPresentedSummary, content: FullScreenModalViewSummary.init)
                     Spacer().frame(width : 30)
                 }
                 .frame(maxWidth : .infinity)
@@ -60,7 +69,7 @@ struct Home: View {
             }
         }
         .frame(maxWidth :.infinity , maxHeight: .infinity)
-        .edgesIgnoringSafeArea(.all)
+        //.edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -77,11 +86,8 @@ struct FullScreenModalViewCreate : View {
     var body : some View {
         VStack{
             Create()
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
-                }
         }
-        .frame(maxWidth : .infinity ,maxHeight: .infinity)
+        .frame(maxWidth : .infinity ,maxHeight: .infinity) // maxHeight: .infinity
     }
 }
 //-------------------------------------------------
@@ -92,12 +98,20 @@ struct FullScreenModalViewSettings : View {
     var body : some View {
         VStack{
             Settings()
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
-                }
         }
     }
 }
 //-------------------------------------------------
 
+
+//This is the calling fuction for the Summary Button
+struct FullScreenModalViewSummary : View {
+    @Environment(\.presentationMode) var presentationMode
+    var body : some View {
+        VStack{
+            Summary()
+        }
+    }
+}
+//-------------------------------------------------
 

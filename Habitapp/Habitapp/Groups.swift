@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Groups : View {
+    @Environment(\.presentationMode) var presentationMode
+    
     var body : some View {
         ZStack{
             VStack{
@@ -29,6 +31,7 @@ struct Groups : View {
                         .frame(width : 30)
                     Button(action : {
                         //Some code
+                        self.presentationMode.wrappedValue.dismiss()
                     }){
                         Image("Exit X")
                     }
@@ -42,6 +45,7 @@ struct Groups : View {
                     .padding(.bottom ,60)
             }
         }
+        .frame(maxWidth :.infinity , maxHeight: .infinity)
     }
 }
 

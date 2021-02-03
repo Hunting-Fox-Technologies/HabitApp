@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Create: View {
+    @Environment(\.presentationMode) var presentationMode
+    
     //State variables for the NAME YOUR HABIT
     @State var habitName : String = ""
     @State var change = false
@@ -23,13 +25,29 @@ struct Create: View {
     //State Variables for the LOG ACTIVITY USING
     @State var z3 = 0
     //State Variables for TRACK GOALS IN WHICH ACTIVITY DAY
-    @State var z4 = 0
-    //
-    @State var notes : String = ""
-    @State var quote : String = ""
-        
+    @State var sun = true
+    @State var mon = true
+    @State var tue = true
+    @State var wed = true
+    @State var thu = true
+    @State var fri = true
+    @State var sat = true
+    //State Variable for GROUPS
     @State var groups = false
+    //State Variables for the CHOSE A COLOR
+    @State var z4 = 1
+    //State Variable for REMINDERS
     @State var reminders = false
+    //State Var for SHOW BADGE IF NO ACTIVITY TODAY
+    @State var z5 = 0
+    //State Var for SHOW TARGET LINE IN CHARTS
+    @State var z6 = 0
+    //State Var for HABIT UNITS
+    @State var z7 = 0
+    //State Var for ADD NOTE
+    @State var notes : String = ""
+    //State Var for WRITE SOMETHING THAT MOTIVATE YOU
+    @State var quote : String = ""
     
     //
     var body: some View {
@@ -43,6 +61,7 @@ struct Create: View {
                         HStack(spacing : 9){
                             Button(action: {
                                 //My action here
+                                self.presentationMode.wrappedValue.dismiss()
                             }){
                                 Text("CANCEL")
                                     .font(.system(size: 10, weight: .regular, design: .default))
@@ -180,14 +199,14 @@ struct Create: View {
                     }
                     VStack(alignment: .leading, spacing: 15) {
                         Title(title: "TRACK GOALS IN WHICH DAYS ?")
-                        HStack(spacing : 9){
-                            RoundButton(day : "SUN")
-                            RoundButton(day : "MON")
-                            RoundButton(day : "TUE")
-                            RoundButton(day : "WED")
-                            RoundButton (day : "THU")
-                            RoundButton(day : "FRI")
-                            RoundButton(day : "SAT")
+                        HStack(spacing : 9){ //
+                            ChangeRoundButton(day : "SUN",state: self.sun)
+                            ChangeRoundButton(day : "MON",state: self.mon)
+                            ChangeRoundButton(day : "TUE",state: self.tue)
+                            ChangeRoundButton(day : "WED",state: self.wed)
+                            ChangeRoundButton (day : "THU",state: self.thu)
+                            ChangeRoundButton(day : "FRI",state: self.fri)
+                            ChangeRoundButton(day : "SAT",state: self.sat)
                         }
                     }
                     VStack(alignment : .leading , spacing : 15){
@@ -208,16 +227,104 @@ struct Create: View {
                     VStack(alignment: .leading, spacing: 15 ) {
                         Title(title: "CHOSE A COLOR ")
                         HStack(spacing : 15) {
-                            ForEach(1..<9) {
-                                ColorCircle(color: "CC\($0)")
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 1
+                            }){
+                                ColorCircle(color: "CC1",access: 1 , state: self.z4)
                             }
-                            
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 2
+                            }){
+                                ColorCircle(color: "CC2",access: 2 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 3
+                            }){
+                                ColorCircle(color: "CC3",access: 3 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 4
+                            }){
+                                ColorCircle(color: "CC4",access: 4 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 5
+                            }){
+                                ColorCircle(color: "CC5",access: 5 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 6
+                            }){
+                                ColorCircle(color: "CC6",access: 6 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 7
+                            }){
+                                ColorCircle(color: "CC7",access: 7 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 8
+                            }){
+                                ColorCircle(color: "CC8",access: 8 , state: self.z4)
+                            }
                         }
                         HStack(spacing : 15) {
-                            ForEach(9..<16){
-                                ColorCircle(color: "CC\($0)")
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 9
+                            }){
+                                ColorCircle(color: "CC9",access: 9 , state: self.z4)
                             }
-                            ColorCircle(color: "LightGray")
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 10
+                            }){
+                                ColorCircle(color: "CC10",access: 10 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 11
+                            }){
+                                ColorCircle(color: "CC11",access: 11 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 12
+                            }){
+                                ColorCircle(color: "CC12",access: 12 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 13
+                            }){
+                                ColorCircle(color: "CC13",access: 13 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 14
+                            }){
+                                ColorCircle(color: "CC14",access: 14 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 15
+                            }){
+                                ColorCircle(color: "CC15",access: 15 , state: self.z4)
+                            }
+                            Button(action : {
+                                //Some actions
+                                self.z4 = 16
+                            }){
+                                ColorCircle(color: "LightGray",access: 16 , state: self.z4)
+                            }
                         }
                     }
                     }
@@ -243,22 +350,16 @@ struct Create: View {
                             HStack(spacing : 9){
                                 Button(action: {
                                     //Some actions
-                                }){
-                                    Text("NO")
-                                        .font(.system(size: 10, weight: .regular, design: .default))
-                                        .foregroundColor(.black)
-                                        .frame(width: 28, height: 18, alignment: .center)
-                                        .background(Color(UIColor(named : "LightGray")!))
-                                        .cornerRadius(5)
+                                    self.z5 = 0
+                                }){//NO / w = 28 / 0 / z5
+                                    changeButton(title: "NO", width: 28, access: 0, state: z5)
                                         
                                 }
                                 Button(action : {
                                     //Some actions here
-                                }) {
-                                    Text("YES")
-                                        .font(.system(size: 10, weight: .regular, design: .default))
-                                        .foregroundColor(.black)
-                                        .frame(width: 33, height: 18, alignment: .center)
+                                    self.z5 = 1
+                                }) {//YES / w = 33 / 0 / z5
+                                    changeButton(title: "YES", width: 33, access: 1, state: z5)
                                 }
                             }
                             
@@ -268,21 +369,15 @@ struct Create: View {
                             HStack(spacing : 9){
                                 Button(action:{
                                     //Some actions
-                                }){
-                                    Text("NO")
-                                        .font(.system(size: 10, weight: .regular, design: .default))
-                                        .foregroundColor(.black)
-                                        .frame(width: 28, height: 18, alignment: .center)
-                                        .background(Color(UIColor(named : "LightGray")!))
-                                        .cornerRadius(5)
+                                    self.z6 = 0
+                                }){//NO / w = 28 / 0 / z6
+                                    changeButton(title: "NO", width: 28, access: 0, state: z6)
                                 }
                                 Button(action : {
                                     //Some actions
-                                }){
-                                    Text("YES")
-                                        .font(.system(size: 10, weight: .regular, design: .default))
-                                        .foregroundColor(.black)
-                                        .frame(width: 33, height: 18, alignment: .center)
+                                    self.z6 = 1
+                                }){//YES / w = 33 / 1 / z6
+                                    changeButton(title: "YES", width: 33, access: 1, state: z6)
                                         
                                 }
                             }
@@ -293,21 +388,15 @@ struct Create: View {
                             HStack{
                                 Button(action : {
                                     //Some actions
-                                }) {
-                                    Text("NONE")
-                                        .font(.system(size: 10, weight: .regular, design: .default))
-                                        .foregroundColor(.black)
-                                        .frame(width: 43, height: 18, alignment: .center)
-                                        .background(Color(UIColor(named : "LightGray")!))
-                                        .cornerRadius(5)
+                                    self.z7 = 0
+                                }) {//NONE / w = 43 / 0 /z7
+                                    changeButton(title: "NONE", width: 43, access: 0, state: z7)
                                 }
                                 Button(action : {
                                     //Some actions
-                                }) {
-                                    Text("CUSTOM")
-                                        .font(.system(size: 10, weight: .regular, design: .default))
-                                        .foregroundColor(.black)
-                                        .frame(width: 60, height: 18, alignment: .center)
+                                    self.z7 = 1
+                                }) {//CUSTOM / w = 60 / 1 /z7
+                                    changeButton(title: "CUSTOM", width: 60, access: 1, state: z7)
                                 }
                             }
                         }
@@ -346,9 +435,13 @@ struct Create_Previews: PreviewProvider {
     }
 }
 
+//------------------------------------------------------------------------
 
-struct RoundButton: View { // Got to fix the buttons. so far they are only text
+//This is the function for the Round buttons
+
+struct RoundButtonActive: View {
     var day : String
+    
     var body: some View {
         Text(day)
             .font(.system(size: 10, weight: .regular, design: .default))
@@ -358,6 +451,46 @@ struct RoundButton: View { // Got to fix the buttons. so far they are only text
             .cornerRadius(20)
     }
 }
+
+struct RoundButtonNoActive: View {
+    var day : String
+    var body: some View {
+        Text(day)
+            .font(.system(size: 10, weight: .regular, design: .default))
+            .foregroundColor(.black)
+            .frame(width: 32, height: 32, alignment: .center)
+            .overlay(
+                Circle()
+                    .stroke(Color(UIColor(named : "LightGray")!))
+                    .frame(width: 32, height: 32, alignment: .center)
+                    
+            )
+    }
+}
+
+struct ChangeRoundButton : View {
+    var day : String
+    @State var state : Bool
+        
+    var body : some View {
+        
+        Button(action : {
+            //Some action
+            self.state.toggle()
+        }){
+            if state {
+                RoundButtonActive(day: day)
+            }
+            else {
+                RoundButtonNoActive(day: day)
+            }
+        }
+    }
+}
+
+//-------------------------------------------------
+
+//-------------------------------------------------
 
 struct Title: View {
     var title : String
@@ -369,44 +502,59 @@ struct Title: View {
     }
 }
 
+//-------------------------------------------------
+
+//this is the function for the Colored Circles
 struct ColorCircle: View {
     var color : String
+    var access : Int
+    var state : Int
+    
     var body : some View{
-        Circle()
-            .frame(width: 20, height: 20, alignment: .center)
-            .foregroundColor(Color(UIColor(named: "\(color)")!))
+        if state == access {
+            Circle()
+                .frame(width: 20, height: 20, alignment: .center)
+                .foregroundColor(Color(UIColor(named: "\(color)")!))
+                .overlay(
+                    Circle()
+                        .stroke(Color(UIColor(named : "DarkGray")!),lineWidth: 2)
+                    )
+            }
+        else {
+            Circle()
+                .frame(width: 20, height: 20, alignment: .center)
+                .foregroundColor(Color(UIColor(named: "\(color)")!))
+            }
+        
     }
 }
 
-//This is the calling fuction for the Group Button
+//-------------------------------------------------
+
+//-------------------------------------------------
+//This is the calling fuction for the Groups Button
 struct FullScreenModalViewGroups : View {
     @Environment(\.presentationMode) var presentationMode
     var body : some View {
         VStack{
             Groups()
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
-                }
         }
     }
 }
 //-------------------------------------------------
 
-//This is the calling fuction for the Group Button
+//This is the calling fuction for the Reminders Button
 struct FullScreenModalViewReminders : View {
     @Environment(\.presentationMode) var presentationMode
     var body : some View {
         VStack{
             Reminders()
-                .onTapGesture {
-                    presentationMode.wrappedValue.dismiss()
-                }
         }
     }
 }
 //-------------------------------------------------
 
-//-------------------------------------------------
+//this is the function of the buttons
 struct activeButton : View {
     var title : String
     var width : CGFloat
@@ -420,9 +568,7 @@ struct activeButton : View {
     }
 }
 
-//-------------------------------------------------
 
-//-------------------------------------------------
 struct noActiveButton : View {
     var title : String
     var width : CGFloat
@@ -434,9 +580,7 @@ struct noActiveButton : View {
     }
 }
 
-//-------------------------------------------------
 
-//-------------------------------------------------
 struct changeButton : View {
     var title : String
     var width : CGFloat

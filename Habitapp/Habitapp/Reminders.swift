@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Reminders : View {
+    @Environment(\.presentationMode) var presentationMode
     var body : some View {
         ZStack{
             VStack(spacing : 30){
@@ -17,6 +18,7 @@ struct Reminders : View {
                         .frame(width : 137)
                     Button(action : {
                         //Some Actions
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("DONE")
                             .font(.system(size: 10, weight: .regular, design: .default))
